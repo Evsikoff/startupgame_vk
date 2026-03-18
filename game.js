@@ -25637,7 +25637,7 @@ var _0xcdc9 = function (_0x28b7ae) {
               this["setScaleTween"](this["moreBtn"], 0x1, 0.3, 0.3)),
             (this["playBtn"]["isEnabled"] = !0x1),
             (this["settingBtn"]["isEnabled"] = !0x1),
-            this["setScaleTween"](this["playBtn"], 0x1, 0.3, 0x0),
+            this["setScaleTween"](this["playBtn"], 73 / 224, 0.3, 0x0),
             this["setScaleTween"](this["settingBtn"], 0x1, 0.3, 0.3),
             (this["buttonEnabledTimer"] = new ig["Timer"](0.5)));
         },
