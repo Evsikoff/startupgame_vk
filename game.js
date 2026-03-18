@@ -18728,7 +18728,7 @@ if (void 0x0 === this["jukebox"])
           "media/graphics/splash/desktop/cover.png",
         ),
         splashMobile: new ig["Image"]("media/graphics/splash/mobile/cover.png"),
-        title: new ig["Image"]("media/graphics/sprites/menu/bg-menu.png"),
+        title: new ig["Image"]("media/graphics/packed/startlogo.jpg"),
         icon: new ig["Image"]("media/graphics/sprites/menu/title.png"),
         loadingFrameImage: new ig["Image"]("media/graphics/sprites/bar-bg.png"),
         loadingBarImage: new ig["Image"]("media/graphics/sprites/bar.png"),
@@ -18838,10 +18838,22 @@ if (void 0x0 === this["jukebox"])
               0.5,
               0.5,
             ),
-            this["title"]["draw"](
-              _0x979489["x"] - this["title"]["width"] / 0x2,
-              _0x979489["y"] - this["title"]["height"] / 0x2,
-            ),
+            (function(_self) {
+              if (_self["title"]["data"]) {
+                var _sX = ig["responsive"]["width"] / _self["title"]["width"];
+                var _sY = ig["responsive"]["height"] / _self["title"]["height"];
+                var _s = Math.max(_sX, _sY);
+                var _w = _self["title"]["width"] * _s;
+                var _h = _self["title"]["height"] * _s;
+                ig["system"]["context"]["drawImage"](
+                  _self["title"]["data"],
+                  _0x979489["x"] - _w / 0x2,
+                  _0x979489["y"] - _h / 0x2,
+                  _w,
+                  _h
+                );
+              }
+            })(this),
             this["loadingFrameImage"]["draw"](
               x,
               y,
@@ -25537,7 +25549,7 @@ var _0xcdc9 = function (_0x28b7ae) {
         bgImage: new ig["Image"](
           "media/graphics/sprites/menu/bg-extension.png",
         ),
-        bgTitle: new ig["Image"]("media/graphics/sprites/menu/bg-menu.png"),
+        bgTitle: new ig["Image"]("media/graphics/packed/startlogo.jpg"),
         icon: new ig["Image"]("media/graphics/sprites/menu/title.png"),
         init: function (_0x1365ac, _0xd54905, _0xfff0a4) {
           (this["parent"](_0x1365ac, _0xd54905, _0xfff0a4),
@@ -25692,10 +25704,21 @@ var _0xcdc9 = function (_0x28b7ae) {
                 _0x3af67a * this["bgImage"]["width"],
                 _0x4adae8 * this["bgImage"]["height"],
               );
-          this["bgTitle"]["draw"](
-            _0x27787a["x"] - this["bgTitle"]["width"] / 0x2,
-            _0x27787a["y"] - this["bgTitle"]["height"] / 0x2,
-          );
+          var _bgCtx = ig["system"]["context"];
+          if (this["bgTitle"]["data"]) {
+            var _scaleX = ig["responsive"]["width"] / this["bgTitle"]["width"];
+            var _scaleY = ig["responsive"]["height"] / this["bgTitle"]["height"];
+            var _bgScale = Math.max(_scaleX, _scaleY);
+            var _bgW = this["bgTitle"]["width"] * _bgScale;
+            var _bgH = this["bgTitle"]["height"] * _bgScale;
+            _bgCtx["drawImage"](
+              this["bgTitle"]["data"],
+              _0x27787a["x"] - _bgW / 0x2,
+              _0x27787a["y"] - _bgH / 0x2,
+              _bgW,
+              _bgH
+            );
+          }
         },
         showSettingPanel: function () {
           (this["setButtonsActive"](!0x1),
