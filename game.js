@@ -25430,11 +25430,11 @@ var _0xcdc9 = function (_0x28b7ae) {
         gravityFactor: 0x0,
         centeredScale: !0x0,
         animSheet: new ig["AnimationSheet"](
-          "media/graphics/sprites/menu/buttons-play.png",
-          0x90,
-          0x55,
+          "media/graphics/packed/play.png",
+          396,
+          224,
         ),
-        size: { x: 0x90, y: 0x55 },
+        size: { x: 396, y: 224 },
         onClickCallback: null,
         init: function (_0x52f03f, _0x16a570, _0x4588c2) {
           (this["parent"](_0x52f03f, _0x16a570, _0x4588c2),
