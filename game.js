@@ -23007,9 +23007,19 @@ var _0xcdc9 = function (_0x28b7ae) {
           ((this["isFirstPressed"] = ig["input"]["pressed"]("click")),
             (this["isReleased"] = ig["input"]["released"]("click")),
             (this["isPressed"] = ig["input"]["state"]("click")));
-          if (this["isFirstPressed"] && this._debugCount < 3) {
+          if (this["isFirstPressed"] && this._debugCount < 5) {
             this._debugCount++;
-            console.log("[POINTER] click detected, pos:", this["pos"]["x"], this["pos"]["y"], "objectArray:", this["objectArray"]["length"]);
+            var _allEnts = ig["game"]["entities"];
+            var _btnInfo = [];
+            for (var _di = 0; _di < _allEnts.length; _di++) {
+              var _e = _allEnts[_di];
+              if (_e.type === ig["Entity"]["TYPE"]["A"]) {
+                _btnInfo.push({name: _e.constructor && _e.constructor.name || "?", x: Math.round(_e.pos.x), y: Math.round(_e.pos.y), w: _e.size.x, h: _e.size.y, type: _e.type, checkAgainst: _e.checkAgainst});
+              }
+            }
+            console.log("[POINTER] click at:", Math.round(this["pos"]["x"]), Math.round(this["pos"]["y"]),
+              "responsive:", ig["responsive"]["width"], "x", ig["responsive"]["height"],
+              "TYPE_A entities:", JSON.stringify(_btnInfo));
           }
         },
         addToClickedObjectList: function (_0x43b45a) {
