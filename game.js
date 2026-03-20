@@ -31470,8 +31470,8 @@ var _0xcdc9 = function (_0x28b7ae) {
             (_0x36c731["fillStyle"] = "#3b4e90"),
             (_0x36c731["textAlign"] = "center"),
             (_0x36c731["textBaseline"] = "top"));
-          var _0x1b91be = ig["responsive"]["width"] / 0x4,
-            _0x515370 = _0x1ba12d["x"] + _0x1b91be - 0x96;
+          var _0x1b91be = ig["responsive"]["width"] / 0x4 - 0x1e,
+            _0x515370 = _0x1ba12d["x"] + _0x1b91be - 0x50;
           this["idleActive"]
             ? (_0x36c731["fillText"](
                 _STRINGS["Game"]["IdleCash"],
@@ -31521,18 +31521,18 @@ var _0xcdc9 = function (_0x28b7ae) {
                   (this["tooltipBtn"]["isEnabled"] = !0x1)))
             : (_0x36c731["fillText"](
                 _STRINGS["Game"]["Cash"],
-                _0x1ba12d["x"] - 0x64,
+                _0x1ba12d["x"] - 0x82,
                 _0x1ba12d["y"] + 0xc,
               ),
               this["cashIcon"]["draw"](
-                _0x1ba12d["x"] - 0x64 - 0x64 - this["cashIcon"]["width"] / 0x2,
+                _0x1ba12d["x"] - 0x82 - 0x64 - this["cashIcon"]["width"] / 0x2,
                 _0x1ba12d["y"] + 0x1e,
               ),
               (_0x36c731["font"] = "35px\x20comfortaa"),
               (_0x36c731["fillStyle"] = "#190d3a"),
               _0x36c731["fillText"](
                 "$\x20" + this["currentCash"],
-                _0x1ba12d["x"] - 0x64,
+                _0x1ba12d["x"] - 0x82,
                 _0x1ba12d["y"] + 0x2d,
               ));
         },
