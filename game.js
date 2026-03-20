@@ -20769,6 +20769,10 @@ if (void 0x0 === this["jukebox"])
               );
               ((this["pos"]["x"] = _0x1094f5["x"]),
                 (this["pos"]["y"] = _0x1094f5["y"]));
+            if (this["centeredScale"]) {
+              this["pos"]["x"] += (this["_size"]["x"] - this["size"]["x"]) / 2;
+              this["pos"]["y"] += (this["_size"]["y"] - this["size"]["y"]) / 2;
+            }
             }
           },
         }));
@@ -22376,59 +22380,6 @@ var _0xcdc9 = function (_0x28b7ae) {
         leave: function () {},
         update: function () {
           this["parent"]();
-        },
-        satCollisionDetection: function () {
-          if (ig["input"]["pressed"]("click"))
-            for (
-              var _0x24fb83 = 0x0;
-              _0x24fb83 <
-              ig["game"]["getEntitiesByType"](EntityPointer)["length"];
-              _0x24fb83++
-            ) {
-              var _0x201b27 =
-                ig["game"]["getEntitiesByType"](EntityPointer)[_0x24fb83];
-              ig["game"]["sat"]["simpleShapeIntersect"](
-                this["getSAT"](),
-                _0x201b27["getSAT"](),
-              ) && this["clicked"]();
-            }
-        },
-        collisionDetection: function () {
-          if (ig["input"]["pressed"]("click"))
-            for (
-              var _0x551ad8 = 0x0;
-              _0x551ad8 <
-              ig["game"]["getEntitiesByType"](EntityPointer)["length"];
-              _0x551ad8++
-            ) {
-              var _0x18fcd3 =
-                ig["game"]["getEntitiesByType"](EntityPointer)[_0x551ad8];
-              ig["game"]["collision"]["polyPoly"](
-                this["getVertices"](),
-                _0x18fcd3["getVertices"](),
-              ) && this["clicked"]();
-            }
-        },
-        getVertices: function () {
-          ((this["pos"]["x"] += ig["game"]["screen"]["x"]),
-            (this["pos"]["y"] += ig["game"]["screen"]["y"]));
-          var _0x11dd62 = [];
-          return (
-            (_0x11dd62[0x0] = { x: this["pos"]["x"], y: this["pos"]["y"] }),
-            (_0x11dd62[0x1] = {
-              x: this["pos"]["x"] + this["size"]["x"],
-              y: this["pos"]["y"],
-            }),
-            (_0x11dd62[0x2] = {
-              x: this["pos"]["x"] + this["size"]["x"],
-              y: this["pos"]["y"] + this["size"]["y"],
-            }),
-            (_0x11dd62[0x3] = {
-              x: this["pos"]["x"],
-              y: this["pos"]["y"] + this["size"]["y"],
-            }),
-            _0x11dd62
-          );
         },
       });
     }),
