@@ -15555,6 +15555,7 @@ if (void 0x0 === this["jukebox"])
               console["log"]("serving\x20universal\x20version\x20...");
           }
         else console["log"]("serving\x20universal\x20version\x20...");
+        console["log"]("[DEPLOY-CHECK] game.js version: 2026-03-20-v2");
       },
       forcedDeviceRotation: function () {
         var _0x16d5e9 = this["getQueryVariable"]("force-rotate");
