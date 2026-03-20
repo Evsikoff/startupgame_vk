@@ -31471,7 +31471,7 @@ var _0xcdc9 = function (_0x28b7ae) {
             (_0x36c731["textAlign"] = "center"),
             (_0x36c731["textBaseline"] = "top"));
           var _0x1b91be = ig["responsive"]["width"] / 0x4,
-            _0x515370 = _0x1ba12d["x"] + _0x1b91be;
+            _0x515370 = _0x1ba12d["x"] + _0x1b91be - 0x32;
           this["idleActive"]
             ? (_0x36c731["fillText"](
                 _STRINGS["Game"]["IdleCash"],
