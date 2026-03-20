@@ -13508,6 +13508,9 @@ if (void 0x0 === this["jukebox"])
             (_0x3cbb2a["stopPropagation"](), _0x3cbb2a["preventDefault"]());
         },
         keydown: function (_0x5a1b6c) {
+          if ("touchstart" == _0x5a1b6c["type"] || "mousedown" == _0x5a1b6c["type"]) {
+            console.log("[INPUT] event:", _0x5a1b6c["type"], "at:", _0x5a1b6c["clientX"], _0x5a1b6c["clientY"], "mouse:", this["mouse"]["x"], this["mouse"]["y"]);
+          }
           var _0xbeeafa = _0x5a1b6c["target"]["tagName"];
           if (!("INPUT" == _0xbeeafa || "TEXTAREA" == _0xbeeafa)) {
             if (
@@ -22944,6 +22947,7 @@ var _0xcdc9 = function (_0x28b7ae) {
         clickedObjectList: [],
         ignorePause: !0x0,
         zIndex: 0x157c,
+        _debugCount: 0,
         check: function (_0x1fd201) {
           this["objectArray"]["push"](_0x1fd201);
         },
@@ -23003,6 +23007,10 @@ var _0xcdc9 = function (_0x28b7ae) {
           ((this["isFirstPressed"] = ig["input"]["pressed"]("click")),
             (this["isReleased"] = ig["input"]["released"]("click")),
             (this["isPressed"] = ig["input"]["state"]("click")));
+          if (this["isFirstPressed"] && this._debugCount < 3) {
+            this._debugCount++;
+            console.log("[POINTER] click detected, pos:", this["pos"]["x"], this["pos"]["y"], "objectArray:", this["objectArray"]["length"]);
+          }
         },
         addToClickedObjectList: function (_0x43b45a) {
           this["clickedObjectList"]["push"](_0x43b45a);
