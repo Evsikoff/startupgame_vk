@@ -55,30 +55,77 @@
         },
 
         /**
-         * Desired game dimensions for desktop widescreen mode.
-         * Based on the game's base resolution of 640×700.
-         */
-        DESKTOP_WIDTH: 900,
-        DESKTOP_HEIGHT: 700,
-
-        /**
-         * Resize the VK iframe to a reasonable size for desktop widescreen mode.
-         * Prevents the game from stretching across a huge iframe.
+         * Resize the VK iframe to fit available space.
+         * On desktop, requests the maximum allowed iframe size from VK.
+         * On mobile, the iframe is always fullscreen — no action needed.
          */
         _resizeWindow: function() {
             var self = this;
             if (typeof vkBridge === 'undefined') return;
 
-            // Only resize on desktop (not mobile)
+            // On mobile the iframe is fullscreen — skip
             if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) return;
 
+            // Request maximum available size from VK
+            // VK constrains width to ~660-1000px and height to >=500px automatically
+            var w = Math.max(window.innerWidth, 800);
+            var h = Math.max(window.innerHeight, 500);
+
             vkBridge.send('VKWebAppResizeWindow', {
-                width: self.DESKTOP_WIDTH,
-                height: self.DESKTOP_HEIGHT
+                width: w,
+                height: h
             }).then(function(data) {
                 self.log('Window resized:', data);
+                self._triggerGameResize();
             }).catch(function(error) {
                 self.log('VKWebAppResizeWindow error (non-critical):', error);
+            });
+        },
+
+        /**
+         * Trigger the game engine's resize/re-layout after iframe dimensions change.
+         */
+        _triggerGameResize: function() {
+            var self = this;
+            // Small delay to let the browser update layout after iframe resize
+            setTimeout(function() {
+                try {
+                    if (typeof ig !== 'undefined' && ig.sizeHandler &&
+                        typeof ig.sizeHandler.reorient === 'function') {
+                        ig.sizeHandler.reorient();
+                        self.log('Game re-layout triggered');
+                    }
+                } catch (e) {
+                    self.log('Game re-layout error (non-critical):', e);
+                }
+            }, 100);
+        },
+
+        /**
+         * Listen for VK iframe resize events and re-layout the game accordingly.
+         */
+        _setupResizeListener: function() {
+            var self = this;
+            if (typeof vkBridge === 'undefined') return;
+
+            // VK Bridge fires VKWebAppViewRestore / VKWebAppViewHide on visibility changes
+            // and the browser fires 'resize' when the iframe dimensions change
+            vkBridge.subscribe(function(event) {
+                if (!event || !event.detail) return;
+                var type = event.detail.type;
+                if (type === 'VKWebAppViewRestore') {
+                    self.log('View restored — triggering re-layout');
+                    self._triggerGameResize();
+                }
+            });
+
+            // Also listen to window resize to catch iframe dimension changes
+            var resizeTimeout;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(function() {
+                    self._triggerGameResize();
+                }, 150);
             });
         },
 
@@ -108,6 +155,7 @@
                         self.isGameReady = true;
                         self._applyIAPVisibility();
                         self._resizeWindow();
+                        self._setupResizeListener();
                         resolve();
                     })
                     .catch(function(error) {
