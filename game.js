@@ -25448,8 +25448,10 @@ var _0xcdc9 = function (_0x28b7ae) {
             (this["startYPos"] = this["anchoredPositionY"]),
             null != _0x4588c2["onClicked"] &&
               (this["onClickCallback"] = _0x4588c2["onClicked"]));
+          console.log("[PLAY-BTN] init, pos:", this["pos"]["x"], this["pos"]["y"], "size:", this["size"]["x"], this["size"]["y"], "isEnabled:", this["isEnabled"]);
         },
         clicked: function () {
+          console.log("[PLAY-BTN] clicked, isEnabled:", this["isEnabled"]);
           this["isEnabled"] &&
             this["tween"](
               { anchoredPositionY: this["startYPos"] + 0x5 },
@@ -25464,9 +25466,11 @@ var _0xcdc9 = function (_0x28b7ae) {
             ]();
         },
         released: function () {
+          console.log("[PLAY-BTN] released, isEnabled:", this["isEnabled"]);
           this["isEnabled"] &&
             this["tween"]({ anchoredPositionY: this["startYPos"] }, 0.2, {
               onComplete: function () {
+                console.log("[PLAY-BTN] tween complete, calling callback");
                 if (null != this["onClickCallback"]) this["onClickCallback"]();
               }["bind"](this),
             })["start"]();
@@ -25759,6 +25763,7 @@ var _0xcdc9 = function (_0x28b7ae) {
               (this["settingPanel"]["kill"](), (this["settingPanel"] = null)));
         },
         startTransitionOut: function () {
+          console.log("[TITLE] startTransitionOut called");
           (ig["soundHandler"]["sfxPlayer"]["play"]("click"),
             // Call Yandex GameplayAPI.start() when Play button is clicked
             (function() {
