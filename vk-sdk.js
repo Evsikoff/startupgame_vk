@@ -55,6 +55,34 @@
         },
 
         /**
+         * Desired game dimensions for desktop widescreen mode.
+         * Based on the game's base resolution of 640×700.
+         */
+        DESKTOP_WIDTH: 900,
+        DESKTOP_HEIGHT: 700,
+
+        /**
+         * Resize the VK iframe to a reasonable size for desktop widescreen mode.
+         * Prevents the game from stretching across a huge iframe.
+         */
+        _resizeWindow: function() {
+            var self = this;
+            if (typeof vkBridge === 'undefined') return;
+
+            // Only resize on desktop (not mobile)
+            if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) return;
+
+            vkBridge.send('VKWebAppResizeWindow', {
+                width: self.DESKTOP_WIDTH,
+                height: self.DESKTOP_HEIGHT
+            }).then(function(data) {
+                self.log('Window resized:', data);
+            }).catch(function(error) {
+                self.log('VKWebAppResizeWindow error (non-critical):', error);
+            });
+        },
+
+        /**
          * Initialize VK Bridge.
          * Always resolves (never rejects) so the game starts even without Bridge.
          * @returns {Promise}
@@ -79,6 +107,7 @@
                         self.isInitialized = true;
                         self.isGameReady = true;
                         self._applyIAPVisibility();
+                        self._resizeWindow();
                         resolve();
                     })
                     .catch(function(error) {
