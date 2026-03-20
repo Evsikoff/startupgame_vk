@@ -18578,21 +18578,21 @@ if (void 0x0 === this["jukebox"])
                   ig["system"]["getDrawPos"](
                     this["pos"]["x"]["round"]() -
                       this["offset"]["x"] -
-                      ig["game"]["screen"]["x"],
-                  ) +
-                    this["_size"]["x"] / 0x2,
+                      ig["game"]["screen"]["x"] +
+                      this["size"]["x"] / 0x2,
+                  ),
                   ig["system"]["getDrawPos"](
                     this["pos"]["y"]["round"]() -
                       this["offset"]["y"] -
-                      ig["game"]["screen"]["y"],
-                  ) +
-                    this["_size"]["y"] / 0x2,
+                      ig["game"]["screen"]["y"] +
+                      this["size"]["y"] / 0x2,
+                  ),
                 ),
                 _0x494fe1["scale"](this["_scale"]["x"], this["_scale"]["y"]),
                 null != this["currentAnim"] &&
                   this["currentAnim"]["draw"](
-                    -this["_size"]["x"] / 0x2,
-                    -this["_size"]["y"] / 0x2,
+                    -this["size"]["x"] / 0x2,
+                    -this["size"]["y"] / 0x2,
                   ))
               : (_0x494fe1["translate"](
                   ig["system"]["getDrawPos"](
@@ -20769,10 +20769,6 @@ if (void 0x0 === this["jukebox"])
               );
               ((this["pos"]["x"] = _0x1094f5["x"]),
                 (this["pos"]["y"] = _0x1094f5["y"]));
-            if (this["centeredScale"]) {
-              this["pos"]["x"] += (this["_size"]["x"] - this["size"]["x"]) / 2;
-              this["pos"]["y"] += (this["_size"]["y"] - this["size"]["y"]) / 2;
-            }
             }
           },
         }));
@@ -23169,11 +23165,7 @@ var _0xcdc9 = function (_0x28b7ae) {
         onClickCallback: null,
         init: function (_0x253d06, _0x14ce04, _0x16c092) {
           (this["parent"](_0x253d06, _0x14ce04, _0x16c092),
-            this["setAnchoredPosition"](
-              _0x253d06 - this["size"]["x"] / 0x2,
-              _0x14ce04 - this["size"]["y"] / 0x2,
-              "center-middle",
-            ),
+            this["setAnchoredPosition"](_0x253d06, _0x14ce04, "center-middle"),
             this["addAnim"]("idle", 0x1, [0x0]),
             (this["startYPos"] = this["anchoredPositionY"]),
             null != _0x16c092["onClicked"] &&
@@ -25409,18 +25401,16 @@ var _0xcdc9 = function (_0x28b7ae) {
         init: function (_0x52f03f, _0x16a570, _0x4588c2) {
           (this["parent"](_0x52f03f, _0x16a570, _0x4588c2),
             this["setAnchoredPosition"](
-              _0x52f03f - this["size"]["x"] / 0x2,
-              _0x16a570 - this["size"]["y"] / 0x2,
+              _0x52f03f,
+              _0x16a570,
               "center-middle",
             ),
             this["addAnim"]("idle", 0x1, [0x0]),
             (this["startYPos"] = this["anchoredPositionY"]),
             null != _0x4588c2["onClicked"] &&
               (this["onClickCallback"] = _0x4588c2["onClicked"]));
-          console.log("[PLAY-BTN] init, pos:", this["pos"]["x"], this["pos"]["y"], "size:", this["size"]["x"], this["size"]["y"], "isEnabled:", this["isEnabled"]);
         },
         clicked: function () {
-          console.log("[PLAY-BTN] clicked, isEnabled:", this["isEnabled"]);
           this["isEnabled"] &&
             this["tween"](
               { anchoredPositionY: this["startYPos"] + 0x5 },
@@ -25435,11 +25425,9 @@ var _0xcdc9 = function (_0x28b7ae) {
             ]();
         },
         released: function () {
-          console.log("[PLAY-BTN] released, isEnabled:", this["isEnabled"]);
           this["isEnabled"] &&
             this["tween"]({ anchoredPositionY: this["startYPos"] }, 0.2, {
               onComplete: function () {
-                console.log("[PLAY-BTN] tween complete, calling callback");
                 if (null != this["onClickCallback"]) this["onClickCallback"]();
               }["bind"](this),
             })["start"]();
@@ -25468,8 +25456,8 @@ var _0xcdc9 = function (_0x28b7ae) {
         init: function (_0x1bbd9a, _0x3ee173, _0x2855ae) {
           (this["parent"](_0x1bbd9a, _0x3ee173, _0x2855ae),
             this["setAnchoredPosition"](
-              _0x1bbd9a - this["size"]["x"] / 0x2,
-              _0x3ee173 - this["size"]["y"] / 0x2,
+              _0x1bbd9a,
+              _0x3ee173,
               _0x2855ae["anchor"],
             ),
             this["addAnim"]("idle", 0x1, [0x0]),
@@ -25651,7 +25639,6 @@ var _0xcdc9 = function (_0x28b7ae) {
           (this["parent"](),
             this["buttonEnabledTimer"] &&
               0x0 < this["buttonEnabledTimer"]["delta"]() &&
-              (typeof window.YandexSDK === 'undefined' || window.YandexSDK.isGameReady) &&
               ((this["playBtn"]["isEnabled"] = !0x0),
               (this["settingBtn"]["isEnabled"] = !0x0),
               null != this["moreBtn"] && (this["moreBtn"]["isEnabled"] = !0x0),
@@ -26192,11 +26179,7 @@ var _0xcdc9 = function (_0x28b7ae) {
           (this["parent"](_0x229253, _0x4a05a3, _0x52ccc8),
             null != _0x52ccc8["onClicked"] &&
               (this["onClickCallback"] = _0x52ccc8["onClicked"]),
-            this["setAnchoredPosition"](
-              _0x229253 - this["size"]["x"] / 0x2,
-              _0x4a05a3 - this["size"]["y"] / 0x2,
-              "bottom-center",
-            ),
+            this["setAnchoredPosition"](_0x229253, _0x4a05a3, "bottom-center"),
             (this["startYPos"] = this["anchoredPositionY"]),
             this["addAnim"]("idle", 0x1, [0x0]),
             (this["targetPos"] = -0xa),
@@ -30474,8 +30457,8 @@ var _0xcdc9 = function (_0x28b7ae) {
         init: function (_0x3939f4, _0x4b1c35, _0x51acee) {
           (this["parent"](_0x3939f4, _0x4b1c35, _0x51acee),
             this["setAnchoredPosition"](
-              _0x3939f4 - this["size"]["x"] / 0x2,
-              _0x4b1c35 - this["size"]["y"],
+              _0x3939f4,
+              _0x4b1c35,
               "center-middle",
             ),
             this["addAnim"]("idle", 0x1, [0x0]),
@@ -30701,11 +30684,7 @@ var _0xcdc9 = function (_0x28b7ae) {
         onTutorialCallback: null,
         init: function (_0x25ec5d, _0x43fe33, _0x16529d) {
           (this["parent"](_0x25ec5d, _0x43fe33, _0x16529d),
-            this["setAnchoredPosition"](
-              _0x25ec5d,
-              _0x43fe33 - this["size"]["y"],
-              "left-bottom",
-            ),
+            this["setAnchoredPosition"](_0x25ec5d, _0x43fe33, "left-bottom"),
             this["addAnim"]("idle", 0x1, [0x0]),
             (this["startYPos"] = this["anchoredPositionY"]),
             null != _0x16529d["onClicked"] &&
@@ -30757,8 +30736,8 @@ var _0xcdc9 = function (_0x28b7ae) {
         init: function (_0xd84d1e, _0x11fc97, _0x3fd700) {
           (this["parent"](_0xd84d1e, _0x11fc97, _0x3fd700),
             this["setAnchoredPosition"](
-              _0xd84d1e - this["size"]["x"] / 0x2,
-              _0x11fc97 - this["size"]["y"],
+              _0xd84d1e,
+              _0x11fc97,
               "middle-center",
             ),
             (this["startYPos"] = this["anchoredPositionY"]),
@@ -31152,11 +31131,7 @@ var _0xcdc9 = function (_0x28b7ae) {
         isEnabled: !0x0,
         init: function (_0x5f026c, _0x121bfe, _0x25b98e) {
           (this["parent"](_0x5f026c, _0x121bfe, _0x25b98e),
-            this["setAnchoredPosition"](
-              _0x5f026c - this["size"]["x"] / 0x2,
-              _0x121bfe - this["size"]["y"] / 0x2,
-              "top-center",
-            ),
+            this["setAnchoredPosition"](_0x5f026c, _0x121bfe, "top-center"),
             this["addAnim"]("idle", 0x1, [0x0]),
             null != _0x25b98e["onClicked"] &&
               (this["onClickCallback"] = _0x25b98e["onClicked"]),
