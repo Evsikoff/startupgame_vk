@@ -31456,6 +31456,15 @@ var _0xcdc9 = function (_0x28b7ae) {
         },
         draw: function () {
           this["parent"]();
+          if (!this._logged) {
+            this._logged = true;
+            console.log("[UI-DEBUG] responsive.width:", ig["responsive"]["width"],
+              "responsive.height:", ig["responsive"]["height"],
+              "system.width:", ig["system"]["width"],
+              "system.height:", ig["system"]["height"],
+              "system.scale:", ig["system"]["scale"],
+              "window:", window.innerWidth, "x", window.innerHeight);
+          }
           var _0x1ba12d = ig["responsive"]["toAnchor"](0x0, 0x0, "top-center");
           count = Math["ceil"](ig["system"]["width"] / this["size"]["x"]);
           for (var _0x36c731 = -0x1; _0x36c731 < count; _0x36c731++)
@@ -31472,6 +31481,14 @@ var _0xcdc9 = function (_0x28b7ae) {
             (_0x36c731["textBaseline"] = "top"));
           var _0x1b91be = ig["responsive"]["width"] / 0x4,
             _0x515370 = _0x1ba12d["x"] + _0x1b91be - 0x96;
+          if (!this._loggedPos) {
+            this._loggedPos = true;
+            console.log("[UI-DEBUG] anchor:", JSON.stringify(_0x1ba12d),
+              "quarterW:", _0x1b91be,
+              "moneyX:", _0x515370,
+              "idleActive:", this["idleActive"],
+              "settingBtn.pos:", this["settingBtn"] ? JSON.stringify({x: this["settingBtn"]["pos"]["x"], y: this["settingBtn"]["pos"]["y"]}) : "null");
+          }
           this["idleActive"]
             ? (_0x36c731["fillText"](
                 _STRINGS["Game"]["IdleCash"],
