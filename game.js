@@ -31403,7 +31403,7 @@ var _0xcdc9 = function (_0x28b7ae) {
             ),
             (this["settingBtn"] = ig["game"]["spawnEntity"](
               EntityButtonSetting,
-              -0x32,
+              -0x23,
               0x2d,
               {
                 zIndex: this["zIndex"] + 0x1,
@@ -31451,7 +31451,7 @@ var _0xcdc9 = function (_0x28b7ae) {
         getTargetMoney: function () {
           var _0xa35655 = ig["responsive"]["width"] / 0x4;
           return this["idleActive"]
-            ? new Vector2(_0xa35655 - 0x64, 0x32)
+            ? new Vector2(_0xa35655 - 0x96, 0x32)
             : new Vector2(-0x64, 0x32);
         },
         draw: function () {
@@ -31471,7 +31471,7 @@ var _0xcdc9 = function (_0x28b7ae) {
             (_0x36c731["textAlign"] = "center"),
             (_0x36c731["textBaseline"] = "top"));
           var _0x1b91be = ig["responsive"]["width"] / 0x4,
-            _0x515370 = _0x1ba12d["x"] + _0x1b91be - 0x64;
+            _0x515370 = _0x1ba12d["x"] + _0x1b91be - 0x96;
           this["idleActive"]
             ? (_0x36c731["fillText"](
                 _STRINGS["Game"]["IdleCash"],
