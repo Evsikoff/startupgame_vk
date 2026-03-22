@@ -31448,8 +31448,8 @@ var _0xcdc9 = function (_0x28b7ae) {
             var leftX, rightX, iconTextGap, labelY, valueY, iconY, labelFont, valueFont;
 
             if (this.wasSmall) {
-              leftX = centerX - 150;
-              rightX = centerX - 50;
+              leftX = centerX - 220;
+              rightX = centerX + 20;
               iconTextGap = 75;
               labelY = 10;
               valueY = 28;
