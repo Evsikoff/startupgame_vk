@@ -31130,19 +31130,17 @@ var _0xcdc9 = function (_0x28b7ae) {
         centeredScale: !0x0,
         isEnabled: !0x0,
         init: function (_0x5f026c, _0x121bfe, _0x25b98e) {
-          (this["parent"](_0x5f026c, _0x121bfe, _0x25b98e),
-            this["setAnchoredPosition"](_0x5f026c, _0x121bfe, "top-center"),
-            this["addAnim"]("idle", 0x1, [0x0]),
-            null != _0x25b98e["onClicked"] &&
-              (this["onClickCallback"] = _0x25b98e["onClicked"]),
-            (this["startXPos"] = this["anchoredPositionX"]),
-            (this["startYPos"] = this["anchoredPositionY"]),
-            ig["game"]["sortEntitiesDeferred"]());
+          this["parent"](_0x5f026c, _0x121bfe, _0x25b98e);
+          var anchor = _0x25b98e["anchor"] || "top-center";
+          this["setAnchoredPosition"](_0x5f026c, _0x121bfe, anchor);
+          this["addAnim"]("idle", 0x1, [0x0]);
+          if (null != _0x25b98e["onClicked"]) {
+            this["onClickCallback"] = _0x25b98e["onClicked"];
+          }
+          ig["game"]["sortEntitiesDeferred"]();
         },
         update: function () {
-          ((this["anchoredPositionX"] =
-            this["startXPos"] - ig["responsive"]["width"] / 0x4),
-            this["parent"]());
+          this["parent"]();
         },
         clicked: function () {
           this["isEnabled"] &&
@@ -31342,6 +31340,7 @@ var _0xcdc9 = function (_0x28b7ae) {
         tooltipBtn: null,
         init: function (_0x4bb190, _0x3b6e6e, _0x3d9f96) {
           (this["parent"](_0x4bb190, _0x3b6e6e, _0x3d9f96),
+            (this.wasSmall = ig.system.width < 700),
             (this["size"] = new Vector2(
               this["bg"]["width"],
               this["bg"]["height"],
@@ -31353,7 +31352,7 @@ var _0xcdc9 = function (_0x28b7ae) {
             ),
             (this["settingBtn"] = ig["game"]["spawnEntity"](
               EntityButtonSetting,
-              -0x23,
+              -70,
               0x2d,
               {
                 zIndex: this["zIndex"] + 0x1,
@@ -31404,104 +31403,100 @@ var _0xcdc9 = function (_0x28b7ae) {
             ? new Vector2(_0xa35655 - 0x96, 0x32)
             : new Vector2(-0x64, 0x32);
         },
+        update: function () {
+          this["parent"]();
+          var isSmall = ig.system.width < 700;
+          if (this.wasSmall !== isSmall) {
+            if (this["tooltipBtn"]) {
+              this["tooltipBtn"]["kill"]();
+              this["tooltipBtn"] = null;
+            }
+            this.wasSmall = isSmall;
+          }
+          if (this["idleActive"]) {
+            if (null == this["tooltipBtn"]) {
+              this["tooltipBtn"] = ig["game"]["spawnEntity"](EntityButtonTooltip, this.wasSmall ? -132 : -227, 20, {
+                zIndex: this["zIndex"] + 0x1,
+                anchor: "top-center",
+                onClicked: function () {
+                  this["onTooltipClicked"]();
+                }["bind"](this),
+              });
+              if (!this["settingBtn"]["isEnabled"])
+                this["tooltipBtn"]["isEnabled"] = false;
+            }
+          } else {
+            if (this["tooltipBtn"]) {
+              this["tooltipBtn"]["kill"]();
+              this["tooltipBtn"] = null;
+            }
+          }
+        },
         draw: function () {
           this["parent"]();
-          if (!this._logged) {
-            this._logged = true;
-            console.log("[UI-DEBUG] responsive.width:", ig["responsive"]["width"],
-              "responsive.height:", ig["responsive"]["height"],
-              "system.width:", ig["system"]["width"],
-              "system.height:", ig["system"]["height"],
-              "system.scale:", ig["system"]["scale"],
-              "window:", window.innerWidth, "x", window.innerHeight);
-          }
           var _0x1ba12d = ig["responsive"]["toAnchor"](0x0, 0x0, "top-center");
-          count = Math["ceil"](ig["system"]["width"] / this["size"]["x"]);
-          for (var _0x36c731 = -0x1; _0x36c731 < count; _0x36c731++)
-            this["bg"]["draw"](
-              _0x1ba12d["x"] +
-                _0x36c731 * this["size"]["x"] -
-                this["size"]["x"] / 0x2,
-              _0x1ba12d["y"],
-            );
-          ((_0x36c731 = ig["system"]["context"]),
-            (_0x36c731["font"] = "25px\x20comfortaa"),
-            (_0x36c731["fillStyle"] = "#3b4e90"),
-            (_0x36c731["textAlign"] = "center"),
-            (_0x36c731["textBaseline"] = "top"));
-          var _0x1b91be = ig["responsive"]["width"] / 0x4,
-            _0x515370 = _0x1ba12d["x"] + _0x1b91be - 0x96;
-          if (!this._loggedPos) {
-            this._loggedPos = true;
-            console.log("[UI-DEBUG] anchor:", JSON.stringify(_0x1ba12d),
-              "quarterW:", _0x1b91be,
-              "moneyX:", _0x515370,
-              "idleActive:", this["idleActive"],
-              "settingBtn.pos:", this["settingBtn"] ? JSON.stringify({x: this["settingBtn"]["pos"]["x"], y: this["settingBtn"]["pos"]["y"]}) : "null");
+          for (var x = 0; x < ig["system"]["width"]; x += this["size"]["x"]) {
+            this["bg"]["draw"](x, _0x1ba12d["y"]);
           }
-          this["idleActive"]
-            ? (_0x36c731["fillText"](
-                _STRINGS["Game"]["IdleCash"],
-                _0x1b91be,
-                _0x1ba12d["y"] + 0xc,
-              ),
-              this["cashIdle"]["draw"](
-                _0x1b91be - 0x64 - this["cashIdle"]["width"] / 0x2,
-                _0x1ba12d["y"] + 0x1e,
-              ),
-              _0x36c731["fillText"](
-                _STRINGS["Game"]["Cash"],
-                _0x515370,
-                _0x1ba12d["y"] + 0xc,
-              ),
-              this["cashIcon"]["draw"](
-                _0x515370 - 0x64 - this["cashIcon"]["width"] / 0x2,
-                _0x1ba12d["y"] + 0x1e,
-              ),
-              (_0x36c731["font"] = "35px\x20comfortaa"),
-              (_0x36c731["fillStyle"] = "#190d3a"),
-              (_0x36c731["textAlign"] = "left"),
-              _0x36c731["fillText"](
-                "$\x20" + this["currentIdle"],
-                _0x1b91be - 0x32,
-                _0x1ba12d["y"] + 0x2d,
-              ),
-              _0x36c731["fillText"](
-                "$\x20" + this["currentCash"],
-                _0x515370 - 0x32,
-                _0x1ba12d["y"] + 0x2d,
-              ),
-              null == this["tooltipBtn"] &&
-                ((this["tooltipBtn"] = ig["game"]["spawnEntity"](
-                  EntityButtonTooltip,
-                  0x55,
-                  0x16,
-                  {
-                    zIndex: this["zIndex"] + 0x1,
-                    anchor: "top-left",
-                    onClicked: function () {
-                      this["onTooltipClicked"]();
-                    }["bind"](this),
-                  },
-                )),
-                this["settingBtn"]["isEnabled"] ||
-                  (this["tooltipBtn"]["isEnabled"] = !0x1)))
-            : (_0x36c731["fillText"](
-                _STRINGS["Game"]["Cash"],
-                _0x1ba12d["x"] - 0x82,
-                _0x1ba12d["y"] + 0xc,
-              ),
-              this["cashIcon"]["draw"](
-                _0x1ba12d["x"] - 0x82 - 0x64 - this["cashIcon"]["width"] / 0x2,
-                _0x1ba12d["y"] + 0x1e,
-              ),
-              (_0x36c731["font"] = "35px\x20comfortaa"),
-              (_0x36c731["fillStyle"] = "#190d3a"),
-              _0x36c731["fillText"](
-                "$\x20" + this["currentCash"],
-                _0x1ba12d["x"] - 0x82,
-                _0x1ba12d["y"] + 0x2d,
-              ));
+          var ctx = ig["system"]["context"];
+          ctx["textAlign"] = "left";
+          ctx["textBaseline"] = "top";
+
+          if (this["idleActive"]) {
+            var centerX = _0x1ba12d["x"];
+            var leftX, rightX, iconTextGap, labelY, valueY, iconY, labelFont, valueFont;
+
+            if (this.wasSmall) {
+              leftX = centerX - 150;
+              rightX = centerX - 50;
+              iconTextGap = 40;
+              labelY = 10;
+              valueY = 28;
+              iconY = 18;
+              labelFont = "11px comfortaa";
+              valueFont = "16px comfortaa";
+            } else {
+              leftX = centerX - 260;
+              rightX = centerX + 20;
+              iconTextGap = 85;
+              labelY = 10;
+              valueY = 35;
+              iconY = 20;
+              labelFont = "22px comfortaa";
+              valueFont = "32px comfortaa";
+            }
+
+            // Stat 1 (Idle Income)
+            ctx["font"] = labelFont;
+            ctx["fillStyle"] = "#3b4e90";
+            ctx["fillText"](_STRINGS["Game"]["IdleCash"], leftX + iconTextGap, _0x1ba12d["y"] + labelY);
+            this["cashIdle"]["draw"](leftX, _0x1ba12d["y"] + iconY);
+            ctx["font"] = valueFont;
+            ctx["fillStyle"] = "#190d3a";
+            ctx["fillText"]("$\x20" + this["currentIdle"], leftX + iconTextGap, _0x1ba12d["y"] + valueY);
+
+            // Stat 2 (Cash)
+            ctx["font"] = labelFont;
+            ctx["fillStyle"] = "#3b4e90";
+            ctx["fillText"](_STRINGS["Game"]["Cash"], rightX + iconTextGap, _0x1ba12d["y"] + labelY);
+            this["cashIcon"]["draw"](rightX, _0x1ba12d["y"] + iconY);
+            ctx["font"] = valueFont;
+            ctx["fillStyle"] = "#190d3a";
+            ctx["fillText"]("$\x20" + this["currentCash"], rightX + iconTextGap, _0x1ba12d["y"] + valueY);
+
+          } else {
+            var textX = _0x1ba12d["x"] - (this.wasSmall ? 80 : 120);
+            var iconTextGap = this.wasSmall ? 75 : 95;
+
+            ctx["font"] = this.wasSmall ? "18px comfortaa" : "25px comfortaa";
+            ctx["fillStyle"] = "#3b4e90";
+            ctx["fillText"](_STRINGS["Game"]["Cash"], textX + iconTextGap, _0x1ba12d["y"] + 12);
+            this["cashIcon"]["draw"](textX, _0x1ba12d["y"] + (this.wasSmall ? 18 : 22));
+
+            ctx["font"] = this.wasSmall ? "24px comfortaa" : "35px comfortaa";
+            ctx["fillStyle"] = "#190d3a";
+            ctx["fillText"]("$\x20" + this["currentCash"], textX + iconTextGap, _0x1ba12d["y"] + (this.wasSmall ? 35 : 42));
+          }
         },
         onSettingClicked: function () {
           (ig["game"]["gameController"]["showSettingPanel"](),
