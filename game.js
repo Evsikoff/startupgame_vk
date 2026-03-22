@@ -31352,7 +31352,7 @@ var _0xcdc9 = function (_0x28b7ae) {
             ),
             (this["settingBtn"] = ig["game"]["spawnEntity"](
               EntityButtonSetting,
-              -0x3c,
+              -70,
               0x2d,
               {
                 zIndex: this["zIndex"] + 0x1,
@@ -31415,7 +31415,7 @@ var _0xcdc9 = function (_0x28b7ae) {
           }
           if (this["idleActive"]) {
             if (null == this["tooltipBtn"]) {
-              this["tooltipBtn"] = ig["game"]["spawnEntity"](EntityButtonTooltip, this.wasSmall ? -210 : -280, 20, {
+              this["tooltipBtn"] = ig["game"]["spawnEntity"](EntityButtonTooltip, this.wasSmall ? -132 : -227, 20, {
                 zIndex: this["zIndex"] + 0x1,
                 anchor: "top-center",
                 onClicked: function () {
@@ -31447,16 +31447,16 @@ var _0xcdc9 = function (_0x28b7ae) {
             var leftX, rightX, iconTextGap, labelY, valueY, iconY, labelFont, valueFont;
 
             if (this.wasSmall) {
-              leftX = centerX - 160;
-              rightX = centerX + 15;
-              iconTextGap = 70;
-              labelY = 12;
-              valueY = 30;
-              iconY = 20;
-              labelFont = "13px comfortaa";
-              valueFont = "18px comfortaa";
+              leftX = centerX - 150;
+              rightX = centerX - 50;
+              iconTextGap = 40;
+              labelY = 10;
+              valueY = 28;
+              iconY = 18;
+              labelFont = "11px comfortaa";
+              valueFont = "16px comfortaa";
             } else {
-              leftX = centerX - 230;
+              leftX = centerX - 260;
               rightX = centerX + 20;
               iconTextGap = 85;
               labelY = 10;

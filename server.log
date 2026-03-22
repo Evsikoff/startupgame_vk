@@ -1,0 +1,36 @@
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /game.css HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /game.js HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /vk-sdk.js HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /poki-sdk.js HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /media/audio/popup.ogg HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /media/audio/disabled.ogg HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /media/audio/play/static.ogg HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /media/audio/click3.ogg HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /media/audio/opening/opening.ogg HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /media/audio/opening/kittyopening.ogg HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /media/audio/managerskill.ogg HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /media/fonts/comfortaa.woff2 HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] code 404, message File not found
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /media/audio/%D0%A0%D0%90%D0%91%D0%9E%D0%A2%D0%9D%D0%98%D0%9A.ogg HTTP/1.1" 404 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /media/audio/elevator.ogg HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /media/audio/miner-finish.ogg HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /media/audio/warehouse-cart.ogg HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /media/audio/addmoney.ogg HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] code 404, message File not found
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /media/audio/bgm.mp3 HTTP/1.1" 404 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /media/audio/warehouse-collect.ogg HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] code 404, message File not found
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /media/graphics/loading/ajax-loader.gif HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /media/audio/%D0%A0%D0%90%D0%91%D0%9E%D0%A2%D0%9D%D0%98%D0%9A.mp3 HTTP/1.1" 404 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /poki-sdk-core.js HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /media/graphics/packed/startlogo.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /branding/logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /media/graphics/packed/play.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /branding/splash1.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /media/graphics/packed/texture-0.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /media/graphics/packed/texture-1.png HTTP/1.1" 200 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] code 404, message File not found
+127.0.0.1 - - [22/Mar/2026 11:02:36] "GET /prebid4.12.0.js HTTP/1.1" 404 -
+127.0.0.1 - - [22/Mar/2026 11:02:36] code 501, message Unsupported method ('POST')
+127.0.0.1 - - [22/Mar/2026 11:02:36] "POST /index.html HTTP/1.1" 501 -
