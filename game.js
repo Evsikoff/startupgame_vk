@@ -25570,8 +25570,8 @@ var _0xcdc9 = function (_0x28b7ae) {
                 )))
               : ((this["playBtn"] = ig["game"]["spawnEntity"](
                   EntityButtonPlay,
-                  -0x4b,
-                  0.5 * (ig["responsive"]["height"] / 0x2) + 0x14,
+                  -0x82,
+                  0.5 * (ig["responsive"]["height"] / 0x2) - 0xC,
                   {
                     zIndex: this["zIndex"] + 0x1,
                     onClicked: function () {
@@ -31134,6 +31134,7 @@ var _0xcdc9 = function (_0x28b7ae) {
           var anchor = _0x25b98e["anchor"] || "top-center";
           this["setAnchoredPosition"](_0x5f026c, _0x121bfe, anchor);
           this["addAnim"]("idle", 0x1, [0x0]);
+          this["startYPos"] = this["anchoredPositionY"];
           if (null != _0x25b98e["onClicked"]) {
             this["onClickCallback"] = _0x25b98e["onClicked"];
           }
@@ -31353,7 +31354,7 @@ var _0xcdc9 = function (_0x28b7ae) {
             (this["settingBtn"] = ig["game"]["spawnEntity"](
               EntityButtonSetting,
               -70,
-              0x2d,
+              0x5,
               {
                 zIndex: this["zIndex"] + 0x1,
                 anchor: "right-top",
@@ -31449,7 +31450,7 @@ var _0xcdc9 = function (_0x28b7ae) {
             if (this.wasSmall) {
               leftX = centerX - 150;
               rightX = centerX - 50;
-              iconTextGap = 40;
+              iconTextGap = 55;
               labelY = 10;
               valueY = 28;
               iconY = 18;
@@ -31458,7 +31459,7 @@ var _0xcdc9 = function (_0x28b7ae) {
             } else {
               leftX = centerX - 260;
               rightX = centerX + 20;
-              iconTextGap = 85;
+              iconTextGap = 105;
               labelY = 10;
               valueY = 35;
               iconY = 20;
