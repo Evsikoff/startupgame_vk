@@ -31450,7 +31450,7 @@ var _0xcdc9 = function (_0x28b7ae) {
             if (this.wasSmall) {
               leftX = centerX - 150;
               rightX = centerX - 50;
-              iconTextGap = 55;
+              iconTextGap = 75;
               labelY = 10;
               valueY = 28;
               iconY = 18;
