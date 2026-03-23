@@ -25542,7 +25542,7 @@ var _0xcdc9 = function (_0x28b7ae) {
               ? ((this["playBtn"] = ig["game"]["spawnEntity"](
                   EntityButtonPlay,
                   0x0,
-                  0.5 * (ig["responsive"]["height"] / 0x2) + 0x14,
+                  0.5 * (ig["responsive"]["height"] / 0x2) + 0x5F,
                   {
                     zIndex: this["zIndex"] + 0x1,
                     onClicked: function () {
@@ -25553,7 +25553,7 @@ var _0xcdc9 = function (_0x28b7ae) {
                 (this["settingBtn"] = ig["game"]["spawnEntity"](
                   EntityButtonSetting,
                   0x96,
-                  0.5 * (ig["responsive"]["height"] / 0x2) + 0x14,
+                  0.5 * (ig["responsive"]["height"] / 0x2) + 0x5F,
                   {
                     zIndex: this["zIndex"] + 0x1,
                     anchor: "center-middle",
@@ -25565,13 +25565,13 @@ var _0xcdc9 = function (_0x28b7ae) {
                 (this["moreBtn"] = ig["game"]["spawnEntity"](
                   EntityButtonMoreGames,
                   -0x96,
-                  0.5 * (ig["responsive"]["height"] / 0x2) + 0x14,
+                  0.5 * (ig["responsive"]["height"] / 0x2) + 0x5F,
                   { zIndex: this["zIndex"] + 0x1 },
                 )))
               : ((this["playBtn"] = ig["game"]["spawnEntity"](
                   EntityButtonPlay,
                   -0x82,
-                  0.5 * (ig["responsive"]["height"] / 0x2) - 0xC,
+                  0.5 * (ig["responsive"]["height"] / 0x2) + 0x3F,
                   {
                     zIndex: this["zIndex"] + 0x1,
                     onClicked: function () {
@@ -25582,7 +25582,7 @@ var _0xcdc9 = function (_0x28b7ae) {
                 (this["settingBtn"] = ig["game"]["spawnEntity"](
                   EntityButtonSetting,
                   0x4b,
-                  0.5 * (ig["responsive"]["height"] / 0x2) + 0x14,
+                  0.5 * (ig["responsive"]["height"] / 0x2) + 0x5F,
                   {
                     zIndex: this["zIndex"] + 0x1,
                     anchor: "center-middle",
