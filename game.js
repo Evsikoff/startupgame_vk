@@ -18591,8 +18591,8 @@ if (void 0x0 === this["jukebox"])
                 _0x494fe1["scale"](this["_scale"]["x"], this["_scale"]["y"]),
                 null != this["currentAnim"] &&
                   this["currentAnim"]["draw"](
-                    -this["size"]["x"] / 0x2,
-                    -this["size"]["y"] / 0x2,
+                    -this["_size"]["x"] / 0x2,
+                    -this["_size"]["y"] / 0x2,
                   ))
               : (_0x494fe1["translate"](
                   ig["system"]["getDrawPos"](
@@ -22892,7 +22892,6 @@ var _0xcdc9 = function (_0x28b7ae) {
         clickedObjectList: [],
         ignorePause: !0x0,
         zIndex: 0x157c,
-        _debugCount: 0,
         check: function (_0x1fd201) {
           this["objectArray"]["push"](_0x1fd201);
         },
@@ -22952,20 +22951,6 @@ var _0xcdc9 = function (_0x28b7ae) {
           ((this["isFirstPressed"] = ig["input"]["pressed"]("click")),
             (this["isReleased"] = ig["input"]["released"]("click")),
             (this["isPressed"] = ig["input"]["state"]("click")));
-          if (this["isFirstPressed"] && this._debugCount < 5) {
-            this._debugCount++;
-            var _allEnts = ig["game"]["entities"];
-            var _btnInfo = [];
-            for (var _di = 0; _di < _allEnts.length; _di++) {
-              var _e = _allEnts[_di];
-              if (_e.type === ig["Entity"]["TYPE"]["A"]) {
-                _btnInfo.push({name: _e.constructor && _e.constructor.name || "?", x: Math.round(_e.pos.x), y: Math.round(_e.pos.y), w: _e.size.x, h: _e.size.y, type: _e.type, checkAgainst: _e.checkAgainst});
-              }
-            }
-            console.log("[POINTER] click at:", Math.round(this["pos"]["x"]), Math.round(this["pos"]["y"]),
-              "responsive:", ig["responsive"]["width"], "x", ig["responsive"]["height"],
-              "TYPE_A entities:", JSON.stringify(_btnInfo));
-          }
         },
         addToClickedObjectList: function (_0x43b45a) {
           this["clickedObjectList"]["push"](_0x43b45a);
