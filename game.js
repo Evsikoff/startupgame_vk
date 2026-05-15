@@ -18621,9 +18621,7 @@ if (void 0x0 === this["jukebox"])
             (this["offset"]["x"] = this["_offset"]["x"] * this["_scale"]["x"]),
             (this["offset"]["y"] = this["_offset"]["y"] * this["_scale"]["y"]),
             (this["size"]["x"] = this["_size"]["x"] * this["_scale"]["x"]),
-            (this["size"]["y"] = this["_size"]["y"] * this["_scale"]["y"]),
-            (this["pos"]["x"] += (_0x4a9abd - this["size"]["x"]) / 0x2),
-            (this["pos"]["y"] += (_0x5bfd4b - this["size"]["y"]) / 0x2));
+            (this["size"]["y"] = this["_size"]["y"] * this["_scale"]["y"]));
         },
       });
     }),
